@@ -16,7 +16,7 @@ class LocalDataSource @Inject
 constructor(private val salesPersonDao: SalesPersonDao,
             private val salesDao: sales_dao) {
     private val executorService : ExecutorService = Executors.newFixedThreadPool(5)
-    private val mainThreadException by lazy {
+    private val mainThreadHandler by lazy {
         Handler(Looper.getMainLooper())
     }
 
@@ -33,7 +33,10 @@ constructor(private val salesPersonDao: SalesPersonDao,
     }
 
     fun getPerson_sales(callback: (List<PersonWithSales>) -> Unit){
-        salesPersonDao.getPersonWithSales()
+        executorService.execute { // this ensure no heavy access happens on the main thread
+            val returnable = salesPersonDao.getPersonWithSales()
+            mainThreadHandler.post { callback(returnable) }
+        }
     }
 
     fun getSales_person(persons_id : Long ){
@@ -41,8 +44,12 @@ constructor(private val salesPersonDao: SalesPersonDao,
 
     }
 
-    fun getSales_persons() : List<Sales_person>{
-        return salesPersonDao.getall()
+    fun getSales_persons(callback: (List<Sales_person>) -> Unit){
+        executorService.execute {
+            val returnable = salesPersonDao.getall()
+            mainThreadHandler.post{callback(returnable)}
+        }
+
 
     }
 
