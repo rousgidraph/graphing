@@ -3,9 +3,7 @@ package com.example.graphing.database
 import android.os.Looper
 import android.os.Handler
 import androidx.activity.OnBackPressedCallback
-import com.example.graphing.models.PersonWithSales
-import com.example.graphing.models.Sale
-import com.example.graphing.models.Sales_person
+import com.example.graphing.models.*
 import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -51,6 +49,20 @@ constructor(private val salesPersonDao: SalesPersonDao,
         }
 
 
+    }
+
+    fun get_person_total_sales(callback: (List<person_total_sales>) -> Unit ){
+        executorService.execute{
+            val returnable = salesDao.get_person_total_sale()
+            mainThreadHandler.post{callback(returnable)}
+        }
+    }
+
+    fun get_branch_sales(callback: (List<branch_sales>) -> Unit){
+        executorService.execute {
+            val returnable = salesDao.get_brach_sales()
+            mainThreadHandler.post { callback(returnable) }
+        }
     }
 
 

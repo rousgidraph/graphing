@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -16,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="Data Analysis"
+            android:text="@string/data_analysis"
             android:textSize="24dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,46 +35,97 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingBottom="300dp"
 
                 >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/graph_one_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="5dp"
 
+                    android:padding="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
                 <com.anychart.AnyChartView
                     android:id="@+id/graph_one"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.anychart.AnyChartView
-                    android:id="@+id/graph_two"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/graph_two_holder"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="5dp"
+
+                    android:padding="3dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <com.anychart.AnyChartView
+                        android:id="@+id/graph_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/graph_three_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="5dp"
+
+                    android:padding="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
                 <com.anychart.AnyChartView
                     android:id="@+id/graph_three"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/graph_four_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="5dp"
+
+                    android:padding="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
                 <com.anychart.AnyChartView
                     android:id="@+id/graph_four"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginRight="5dp"
@@ -81,6 +133,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>
 
